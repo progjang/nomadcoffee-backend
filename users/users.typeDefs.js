@@ -10,6 +10,8 @@ export default gql`
         password: String!      
         avatarURL: String     
         githubUsername: String
+        followings(page:Int): [User]
+        followers(page:Int): [User]
         createdAt: String     
         updatedAt: String    
     }
