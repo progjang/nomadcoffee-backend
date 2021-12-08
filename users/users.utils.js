@@ -23,7 +23,6 @@ export const protectedResolver = (ourResolver) => (
     context,
     info
  ) => {
-     console.log(context.loggedInUser);
      if(!context.loggedInUser) {
          return {
              ok: false,
