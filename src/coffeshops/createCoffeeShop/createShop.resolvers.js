@@ -1,5 +1,6 @@
 import client from "../../client"
-import { handlePhoto, processCategory } from "../../common/utils";
+import { handlePhotoS3, processCategory } from "../../common/common.utils";
+
 import { protectedResolver } from "../../users/users.utils"
 
 
@@ -15,7 +16,7 @@ export default {
             }
             let photosObj = [];
             if(photos){
-                const urlList = await handlePhoto(photos, loggedInUser.id)
+                const urlList = await handlePhotoS3(photos, loggedInUser.id)
                 urlList.map((url) => photosObj.push({
                     where: {url}, create:{url}
                 }));

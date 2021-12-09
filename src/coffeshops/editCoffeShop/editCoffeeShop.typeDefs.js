@@ -6,6 +6,6 @@ export default gql`
         error:String
     }
     type Mutation {
-        editCoffeeShop(id:Int! name:String latitude:String longitude:String categories:String):EditCoffeeShopResult
+        editCoffeeShop(id:Int! name:String latitude:String longitude:String photos:Upload categories:String):EditCoffeeShopResult
     }
 `;
