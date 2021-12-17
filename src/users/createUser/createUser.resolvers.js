@@ -13,7 +13,11 @@ export default {
                     ]
                 }});
                 if(existingUser) {
-                    throw new Error("the username/password already taken.")
+                    return {
+                        ok: false,
+                        error: "the username/password already taken."
+                    }
+                    // throw new Error("the username/password already taken.")
                 }
                 //make uglyPassword (hashing)
                 const uglyPassword = await bcrypt.hash(password, 9);
@@ -26,6 +30,7 @@ export default {
                     }
                 });
             } catch(e){
+                console.log(e);
                 return {
                     ok: false,
                     error: e

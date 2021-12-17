@@ -7,6 +7,7 @@ import { protectedResolver } from "../../users/users.utils"
 export default {
     Mutation: {
         createCoffeeShop: protectedResolver(async(_, {name, latitude, longitude, photos, categories}, {loggedInUser}) => {
+            console.log(name, latitude, longitude, photos);
             const existingName = await client.coffeeShop.findFirst({where: {name}});
             if(existingName){
                 return {

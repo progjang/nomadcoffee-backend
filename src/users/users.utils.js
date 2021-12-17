@@ -24,10 +24,16 @@ export const protectedResolver = (ourResolver) => (
     info
  ) => {
      if(!context.loggedInUser) {
-         return {
-             ok: false,
-             error: "login required"
+         const query = info.operation.operation === "query";
+         if(query){
+             return null;
+         } else{
+            return {
+                ok: false,
+                error: "login required"
+            }
          }
+
      }
      return ourResolver(root, args, context, info);
  }
