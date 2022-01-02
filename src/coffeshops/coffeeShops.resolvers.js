@@ -12,6 +12,7 @@ export default {
             },
         }),
         photos:({id}) => client.coffeeShop.findUnique({where:{id}}).photos(),
+        categories:({id}) => client.coffeeShop.findUnique({where:{id}}).categories(),
     },
     Category: {
         shops: ({id}, {page}) => client.category.findUnique({where:{id}}).shops({take:5, skip:(page-1)*5}),
